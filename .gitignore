@@ -1,6 +1,9 @@
 # Built application files
 *.apk
+<<<<<<< HEAD
 *.aar
+=======
+>>>>>>> ADD initial commit
 *.ap_
 *.aab
 
@@ -14,8 +17,12 @@
 bin/
 gen/
 out/
+<<<<<<< HEAD
 #  Uncomment the following line in case you need and you don't have the release build type files in your app
 # release/
+=======
+release/
+>>>>>>> ADD initial commit
 
 # Gradle files
 .gradle/
@@ -36,6 +43,12 @@ proguard/
 # Android Studio captures folder
 captures/
 
+<<<<<<< HEAD
+=======
+# general rule to exclude .idea
+.idea
+app/.idea
+>>>>>>> ADD initial commit
 # IntelliJ
 *.iml
 .idea/workspace.xml
@@ -57,7 +70,10 @@ captures/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
+<<<<<<< HEAD
 .cxx/
+=======
+>>>>>>> ADD initial commit
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
@@ -83,3 +99,16 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+<<<<<<< HEAD
+=======
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/codeStyles/Project.xml
+/.idea/encodings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/kotlinc.xml
+/.idea/misc.xml
+/.idea/render.experimental.xml
+/.idea/runConfigurations.xml
+/flowmap.png
+/NOTES.txt
+>>>>>>> ADD initial commit

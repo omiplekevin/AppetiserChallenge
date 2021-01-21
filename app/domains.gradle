@@ -1,0 +1,4 @@
+ext {
+    //Rocket Chat
+    appleAPI = "\"https://itunes.apple.com/\""
+}

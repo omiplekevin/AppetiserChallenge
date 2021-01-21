@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply from: 'dependencies.gradle'
+apply from: 'domains.gradle'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.android.appetisermasterdetail"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "APPLE_DOMAIN", appleAPI)
+        buildConfigField("int", "DATABASE_VERSION", String.valueOf(1))
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation kotlin
+    implementation googleDependencies
+    implementation glide
+    implementation gson
+    implementation retrofit
+    implementation rxjava
+    implementation okhttp
+    implementation dagger
+    implementation viewmodel
+    implementation timber
+    implementation pullrefresh
+
+    debugImplementation databaseDebug
+
+    kapt annotations
+
+    testImplementation testImplementationDependencies
+
+    androidTestImplementation androidTestDependencies
+
+}

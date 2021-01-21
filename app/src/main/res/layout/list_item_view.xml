@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android.appetisermasterdetail.viewmodel.ListItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/infoCardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:translationZ="1dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:translationZ="3dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_vertical_40"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/albumCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:contentImage="@{viewModel.getMutableItemCover()}"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/trackNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/black"
+            android:maxLines="3"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="5dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_40"
+            app:layout_constraintEnd_toEndOf="@id/infoCardView"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_20"
+            app:mutableTextView="@{viewModel.getMutableItemName()}" />
+
+        <TextView
+            android:id="@+id/trackGenreText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:translationZ="5dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_40"
+            app:layout_constraintEnd_toEndOf="@id/infoCardView"
+            app:layout_constraintTop_toBottomOf="@id/trackNameText"
+            app:mutableTextView="@{viewModel.getMutableItemGenre()}" />
+
+        <TextView
+            android:id="@+id/trackPriceText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:translationZ="5dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_40"
+            app:layout_constraintEnd_toEndOf="@id/infoCardView"
+            app:layout_constraintTop_toBottomOf="@id/trackGenreText"
+            app:mutableTextView="@{viewModel.getMutableItemPrice()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android.appetisermasterdetail.viewmodel.ItemDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.ItemDetailActivity"
+        android:background="@color/colorPrimaryDark">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_25"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_25"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:translationY="15dp"
+            android:translationZ="5dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_25" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/albumArtCoverCard"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:translationZ="10dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_horizontal_25"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical_25"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_25"
+            app:layout_constraintTop_toTopOf="@id/guideline_horizontal_25">
+
+            <ImageView
+                android:id="@+id/albumCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:contentImage="@{viewModel.getMutableItemCover()}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/trackNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:maxLines="3"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:translationZ="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/albumArtCoverCard"
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_25"
+            app:mutableTextView="@{viewModel.getMutableItemName()}" />
+
+        <TextView
+            android:id="@+id/artistText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:textColor="@android:color/black"
+            android:translationZ="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/trackNameText"
+            app:layout_constraintTop_toBottomOf="@id/trackNameText"
+            app:mutableTextView="@{viewModel.getMutableItemArtist()}" />
+
+        <TextView
+            android:id="@+id/maturityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_maturity"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_25"
+            app:layout_constraintStart_toEndOf="@id/albumArtCoverCard"
+            app:mutableTextView="@{viewModel.getMutableItemMaturityRating()}" />
+
+        <TextView
+            android:id="@+id/genreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_25"
+            app:layout_constraintStart_toEndOf="@id/maturityText"
+            app:mutableTextView="@{viewModel.getMutableItemGenre()}" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_25"
+            app:layout_constraintStart_toEndOf="@id/genreText"
+            app:mutableTextView="@{viewModel.getMutableItemPrice()}" />
+
+        <TextView
+            android:id="@+id/longDescriptionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:translationZ="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/albumArtCoverCard"
+            app:layout_constraintTop_toBottomOf="@id/albumArtCoverCard"
+            app:mutableTextView="@{viewModel.getMutableItemLongDescription()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
