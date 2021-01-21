@@ -18,3 +18,6 @@ This application is written in Kotlin for Android
 
 ## Persistence
 * Application is using database for storing information collected from the API and can be used with / without external connection
+
+## APK file
+* attached [here](https://github.com/omiplekevin/AppetiserChallenge/blob/master/app-release.apk)
